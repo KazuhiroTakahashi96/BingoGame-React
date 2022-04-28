@@ -43,24 +43,8 @@ function App() {
 
       <div className="container">
         <BingoCard cardNum={cardNum} />
-
-        <ShowReachBingo></ShowReachBingo>
-
-        <BingoBall></BingoBall>
-      </div>
-
-      <div className="btn">
-        <input
-          type="button"
-          value="カード作成"
-          className="makeCard-btn"
-          onClick={makeBingoCard}
-        />
-        <input
-          type="button"
-          value="ボールを引く"
-          className="bingoBall-btn hide"
-        />
+        <ShowReachBingo />
+        <BingoBall />
       </div>
     </div>
   );
