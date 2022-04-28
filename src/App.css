@@ -11,8 +11,10 @@ header {
 }
 
 .container {
-  margin: 100px 50px;
+  font-size: 1.5rem;
+  margin: 50px 20px;
   display: flex;
+  text-align: center;
 }
 
 input {

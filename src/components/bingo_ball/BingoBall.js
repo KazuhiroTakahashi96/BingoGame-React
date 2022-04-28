@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const BingoBall = () => {
   // 何個目のボールか
-  const [ballCount, setBallCount] = useState(1);
+  const [ballCount, setBallCount] = useState(0);
 
   // 1〜75を持った長さ75の配列の作成
   const bingoBallArray = [];
