@@ -1,10 +1,17 @@
 import React from "react";
 
-const BingoCard = () => {
+const BingoCard = ({ cardNum }) => {
+  console.log(cardNum);
+
   return (
     <div>
       <section>
-        <div>BingoCard</div>
+        <div>Bingo Card</div>
+        {cardNum.map((num, i, array) => (
+          <div key={i}>
+            <p>{num}</p>
+          </div>
+        ))}
       </section>
     </div>
   );
