@@ -6,7 +6,6 @@
   display: flex;
 }
 .bingo > p {
-  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -18,7 +17,7 @@
   margin: 0 10px;
 }
 .cardNum-container > div > p {
-  margin: 10px;
+  padding: 10px;
   font-size: 1.2rem;
   line-height: 2;
 }

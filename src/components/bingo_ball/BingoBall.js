@@ -1,35 +1,34 @@
 import React, { useState } from "react";
+import "./BingoBall.css";
+import makeBingoBall from "./functions/makeBingoBall";
 
 const BingoBall = () => {
   // 何個目のボールか
   const [ballCount, setBallCount] = useState(0);
-
-  // 1〜75を持った長さ75の配列の作成
-  const bingoBallArray = [];
-  for (let i = 1; i <= 75; i++) {
-    bingoBallArray.push(i);
-  }
-  // 出たビンゴボールの数字を格納していく配列の作成
-  const ballNumArray = [];
+  // 引いたボールの番号
+  const [showBallNum, setShowBallNum] = useState(0);
 
   return (
     <div>
       <div>
-        <span>{ballCount}</span>
+        <span className="ballCount">{ballCount}</span>
         個目のボール
       </div>
       <br />
 
-      <div></div>
+      <div className="ballNum">{showBallNum}</div>
       <br />
 
       <div>
-        <input
-          type="button"
-          value="ボールを引く"
+        <button
           className="bingoBall-btn"
-          onClick={() => setBallCount(ballCount + 1)}
-        />
+          onClick={() => {
+            setBallCount(ballCount + 1);
+            makeBingoBall();
+          }}
+        >
+          ボールを引く
+        </button>
       </div>
     </div>
   );

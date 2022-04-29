@@ -1,40 +1,6 @@
 import React from "react";
 
-const bingoBallFunc = () => {
-  // ============= ビンゴボールの数字を作成する関数 ============
-  const makeBingoBall = () => {
-    // 0〜74の中で、ランダムな値を取得
-    // const randomNum = Math.floor(Math.random() * bingoBallArray.length);
-    // ballNumArray.unshift(bingoBallArray[randomNum]);
-    // // 数字が重複しないよう、元の配列から削除
-    // bingoBallArray.splice(randomNum, 1);
-    // 画面に数字を表示
-    // if (bingoBallArray.length === 0) {
-    //   ballNum.innerHTML = ballNumArray[0];
-    //   ballBtn.classList.add("hide");
-    //   setTimeout(() => {
-    //     end.innerHTML = "終了";
-    //   }, 1500);
-    // } else {
-    //   ballNum.innerHTML = ballNumArray[0];
-    // }
-    // checkNumber();
-  };
-
-  // =========== ボールの数字とカード上の数字のチェックをして =============
-  // ======== 一致した場合、カード上のその数字の背景色を変更する関数 =========
-  // const checkNumber = () => {
-  //   // 引いた数字の値がカード上にある場合、
-  //   if (bingoCard.cardNumArray.includes(this.ballNumArray[0])) {
-  //     // インデックス番号を取得する
-  //     const indexNum = bingoCard.cardNumArray.indexOf(this.ballNumArray[0]);
-  //     // 背景色を変える＝穴を開ける
-  //     col_BINGO[indexNum].ariaChecked = "true";
-  //   }
-
-  //   this.showReachBing();
-  // };
-
+const checkReachBingo = () => {
   // // ========== リーチ数、ビンゴ数をチェック、出力する関数 ============
   // // ===== リーチ数をチェックする関数 =====
   // const checkReachNum = (el) => {
@@ -47,7 +13,6 @@ const bingoBallFunc = () => {
   //   }
   //   return reachNum / 4 === 1 ? 1 : 0;
   // };
-
   // // ===== ビンゴ数をチェックする関数 =====
   // const checkBingoNum = (el) => {
   //   let bingoNum = 0;
@@ -59,7 +24,6 @@ const bingoBallFunc = () => {
   //   }
   //   return bingoNum / 5 === 1 ? 1 : 0;
   // };
-
   // // ===== 画面に出力する関数 =====
   // const showReachBing = () => {
   //   // リーチ数
@@ -76,7 +40,6 @@ const bingoBallFunc = () => {
   //     this.checkReachNum(row_5) +
   //     this.checkReachNum(cross1) +
   //     this.checkReachNum(cross2);
-
   //   // ビンゴ数
   //   const totalBingoNumber =
   //     this.checkBingoNum(col_B) +
@@ -91,11 +54,9 @@ const bingoBallFunc = () => {
   //     this.checkBingoNum(row_5) +
   //     this.checkBingoNum(cross1) +
   //     this.checkBingoNum(cross2);
-
   //   reachNum.innerHTML = totalReachNumber;
   //   bingoNum.innerHTML = totalBingoNumber;
   // };
-  return;
 };
 
-export default bingoBallFunc;
+export default checkReachBingo;

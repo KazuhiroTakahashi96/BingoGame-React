@@ -49,6 +49,7 @@ const BingoCard = () => {
       if (i < 5) {
         // col_Bに、そのインデックス番号の数字を格納
         col_B.push(cardNumArray[i]);
+        // 10未満なら
       } else if (i < 10) {
         col_I.push(cardNumArray[i]);
       } else if (i < 15) {
@@ -85,12 +86,9 @@ const BingoCard = () => {
       </div>
       <br />
 
-      <input
-        type="button"
-        value="カード作成"
-        className="makeCard-btn"
-        onClick={makeBingoCard}
-      />
+      <button className="makeCard-btn" onClick={makeBingoCard}>
+        カード作成
+      </button>
     </div>
   );
 };
