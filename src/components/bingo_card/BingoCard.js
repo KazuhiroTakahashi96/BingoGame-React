@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./BingoCard.css";
+import CardNum from "./card_number/CardNum";
 
 const BingoCard = () => {
   const [colB, setColB] = useState([]);
@@ -37,6 +38,7 @@ const BingoCard = () => {
     makeRandomNum(45);
     makeRandomNum(60);
 
+    // B列、I列、N列、G列、O列の配列
     const col_B = [];
     const col_I = [];
     const col_N = [];
@@ -45,7 +47,7 @@ const BingoCard = () => {
     for (let i = 0; i < 25; i++) {
       // インデックス番号が5未満なら
       if (i < 5) {
-        // col_Bにその数字を格納
+        // col_Bに、そのインデックス番号の数字を格納
         col_B.push(cardNumArray[i]);
       } else if (i < 10) {
         col_I.push(cardNumArray[i]);
@@ -57,12 +59,6 @@ const BingoCard = () => {
         col_O.push(cardNumArray[i]);
       }
     }
-    console.log(col_B);
-    console.log(col_I);
-    console.log(col_N);
-    console.log(col_G);
-    console.log(col_O);
-
     setColB(col_B);
     setColI(col_I);
     setColN(col_N);
@@ -81,31 +77,11 @@ const BingoCard = () => {
       </div>
 
       <div className="cardNum-container">
-        <div>
-          {colB.map((num, i) => (
-            <p key={i}>{num}</p>
-          ))}
-        </div>
-        <div>
-          {colI.map((num, i) => (
-            <p key={i}>{num}</p>
-          ))}
-        </div>
-        <div>
-          {colN.map((num, i) => (
-            <p key={i}>{num}</p>
-          ))}
-        </div>
-        <div>
-          {colG.map((num, i) => (
-            <p key={i}>{num}</p>
-          ))}
-        </div>
-        <div>
-          {colO.map((num, i) => (
-            <p key={i}>{num}</p>
-          ))}
-        </div>
+        <CardNum cardNum={colB} />
+        <CardNum cardNum={colI} />
+        <CardNum cardNum={colN} />
+        <CardNum cardNum={colG} />
+        <CardNum cardNum={colO} />
       </div>
       <br />
 

@@ -20,4 +20,5 @@
 .cardNum-container > div > p {
   margin: 10px;
   font-size: 1.2rem;
+  line-height: 2;
 }
