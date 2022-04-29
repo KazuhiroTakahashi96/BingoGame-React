@@ -10,8 +10,8 @@
 }
 
 .cardNum-container {
-  margin: 0 10px;
   display: flex;
+  gap: 10px;
 }
 .cardNum-container > div {
   margin: 0 10px;
