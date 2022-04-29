@@ -20,8 +20,6 @@ const makeBingoBall = () => {
   bingoBallArray.splice(randomNum, 1);
 
   // 画面に数字を表示
-  //   BingoBall.setShowBallNum(ballNumArray[0]);
-
   // if (bingoBallArray.length === 0) {
   //   ballNum.innerHTML = ballNumArray[0];
   //   ballBtn.classList.add("hide");
@@ -31,13 +29,13 @@ const makeBingoBall = () => {
   // } else {
   //   ballNum.innerHTML = ballNumArray[0];
   // }
-  // checkNumber();
+
   console.log(bingoBallArray);
   console.log(ballNumArray);
 
-  //   return ballNumArray[0];
-
   checkNumber();
+
+  return ballNumArray[0];
 };
 
 export default makeBingoBall;

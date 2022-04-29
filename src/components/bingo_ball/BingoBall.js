@@ -5,7 +5,7 @@ import makeBingoBall from "./functions/makeBingoBall";
 const BingoBall = () => {
   // 何個目のボールか
   const [ballCount, setBallCount] = useState(0);
-  // 引いたボールの番号
+  // 引いたボールの番号を表示
   const [showBallNum, setShowBallNum] = useState(0);
 
   return (
@@ -24,7 +24,7 @@ const BingoBall = () => {
           className="bingoBall-btn"
           onClick={() => {
             setBallCount(ballCount + 1);
-            makeBingoBall();
+            setShowBallNum(makeBingoBall());
           }}
         >
           ボールを引く
