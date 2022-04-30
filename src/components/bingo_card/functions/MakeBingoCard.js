@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataContext } from "../../../context/DataContext";
 import CardNum from "../card_number/CardNum";
 
 // ビンゴカードの番号を格納する配列
@@ -23,6 +24,8 @@ const cross_1 = [];
 const cross_2 = [];
 
 const MakeBingoCard = () => {
+  const data = useContext(DataContext);
+
   const [colB, setColB] = useState([]);
   const [colI, setColI] = useState([]);
   const [colN, setColN] = useState([]);
@@ -73,6 +76,10 @@ const MakeBingoCard = () => {
       }
     }
 
+    // 中央はfree
+    // インデックス2番目から1つ削除して、「free」に置換
+    col_N.splice(2, 1, "free");
+
     // 横列の数字を、用意した配列に格納
     for (let i = 0; i < 25; i += 5) {
       for (let j = 0; j < 5; j++) {
@@ -103,6 +110,9 @@ const MakeBingoCard = () => {
     setColN(col_N);
     setColG(col_G);
     setColO(col_O);
+
+    // ビンゴカードの数字の配列を他コンポーネントへ渡す（useContext）
+    data.setCardNumbersArray(cardNumArray);
   };
 
   return (
@@ -121,6 +131,7 @@ const MakeBingoCard = () => {
         onClick={() => {
           makeBingoCard();
           setHideBtn(!hideBtn);
+          data.setShowBingoBallBtn(!data.showBingoBallBtn);
         }}
       >
         カード作成

@@ -7,11 +7,13 @@
 }
 .bingo > p {
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .cardNum-container {
   display: flex;
-  gap: 10px;
+  width: 27vw;
+  gap: 8px;
 }
 .cardNum-container > div {
   margin: 0 10px;

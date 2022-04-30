@@ -9,6 +9,12 @@ export const DataProvider = ({ children }) => {
   const [colG, setColG] = useState([]);
   const [colO, setColO] = useState([]);
 
+  // カードの番号の配列
+  const [cardNumbersArray, setCardNumbersArray] = useState([]);
+
+  //
+  const [showBingoBallBtn, setShowBingoBallBtn] = useState(false);
+
   return (
     <DataContext.Provider
       value={{
@@ -22,6 +28,10 @@ export const DataProvider = ({ children }) => {
         setColG,
         colO,
         setColO,
+        cardNumbersArray,
+        setCardNumbersArray,
+        showBingoBallBtn,
+        setShowBingoBallBtn,
       }}
     >
       {children}

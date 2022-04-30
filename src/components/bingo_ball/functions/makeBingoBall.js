@@ -1,5 +1,3 @@
-import checkNumber from "./checkNumber";
-
 // 1〜75を持った長さ75の配列の作成
 const bingoBallArray = [];
 for (let i = 1; i <= 75; i++) {
@@ -19,7 +17,6 @@ const makeBingoBall = () => {
   // 数字が重複しないよう、元の配列から削除
   bingoBallArray.splice(randomNum, 1);
 
-  // 画面に数字を表示
   // if (bingoBallArray.length === 0) {
   //   ballNum.innerHTML = ballNumArray[0];
   //   ballBtn.classList.add("hide");
@@ -33,9 +30,7 @@ const makeBingoBall = () => {
   console.log(bingoBallArray);
   console.log(ballNumArray);
 
-  checkNumber();
-
+  // 画面に数字を表示
   return ballNumArray[0];
 };
-
 export default makeBingoBall;
