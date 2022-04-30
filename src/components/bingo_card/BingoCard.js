@@ -1,6 +1,6 @@
 import React from "react";
 import "./BingoCard.css";
-import MakeBingoCard from "./functions/MakeBingoCard";
+import MakeBingoCard from "./make_bingoCard/MakeBingoCard";
 
 const BingoCard = () => {
   return (

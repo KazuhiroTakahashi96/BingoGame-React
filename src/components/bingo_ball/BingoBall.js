@@ -39,7 +39,10 @@ const BingoBall = () => {
       setShowBallNum(ballNumArray[0]);
     }
 
-    checkNumber();
+    data.setMatchedNumber(ballNumArray[0]);
+    console.log(ballNumArray);
+
+    // checkNumber();
   };
 
   // =========== ボールの数字とカード上の数字のチェックをして =============
@@ -49,9 +52,17 @@ const BingoBall = () => {
     if (data.cardNumbersArray.includes(ballNumArray[0])) {
       // インデックス番号を取得する
       const indexNum = data.cardNumbersArray.indexOf(ballNumArray[0]);
-      // 背景色を変える＝穴を開ける
-      // col_BINGO[indexNum].ariaChecked = "true";
       console.log(indexNum);
+
+      const matchedNumber = data.cardNumbersArray[indexNum];
+      console.log(matchedNumber);
+      if (indexNum < 5) {
+      } else if (indexNum < 10) {
+      } else if (indexNum < 15) {
+      } else if (indexNum < 20) {
+      } else if (indexNum < 25) {
+      }
+      // 背景色を変える＝穴を開ける
     }
     // showReachBing();
   };
