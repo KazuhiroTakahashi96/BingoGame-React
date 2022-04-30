@@ -111,7 +111,7 @@ const MakeBingoCard = () => {
       cross_2.push(cardNumArray[i]);
     }
 
-    // ビンゴカードの数字の配列を他コンポーネントへ渡す（useContext）
+    // ビンゴカードの数字の配列をBingoBall.jsに渡す（useContext）
     data.setCardNumbersArray(cardNumArray);
   };
 
