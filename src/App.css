@@ -11,10 +11,10 @@ header {
 }
 
 .container {
-  font-size: 1.5rem;
-  margin: 50px 20px;
   display: flex;
   text-align: center;
+  font-size: 1.5rem;
+  margin: 50px auto;
 }
 
 button {
@@ -23,5 +23,5 @@ button {
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
-  margin: 20px;
+  margin: 15px;
 }

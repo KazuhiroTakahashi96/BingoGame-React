@@ -18,8 +18,6 @@ const BingoBall = () => {
 
   const data = useContext(DataContext);
 
-  console.log(data.cardNumbersArray);
-
   // ============= ビンゴボールの数字を作成する関数 ============
   const makeBingoBall = () => {
     // 0〜74の中で、ランダムな値を取得
@@ -31,21 +29,14 @@ const BingoBall = () => {
     // 数字が重複しないよう、元の配列から削除
     bingoBallArray.splice(randomNum, 1);
 
-    // if (bingoBallArray.length === 0) {
-    //   ballNum.innerHTML = ballNumArray[0];
-    //   ballBtn.classList.add("hide");
-    //   setTimeout(() => {
-    //     end.innerHTML = "終了";
-    //   }, 1500);
-    // } else {
-    //   ballNum.innerHTML = ballNumArray[0];
-    // }
-
-    console.log(bingoBallArray);
-    console.log(ballNumArray);
-
     // 画面に数字を表示
-    setShowBallNum(ballNumArray[0]);
+    if (bingoBallArray.length === 0) {
+      setShowBallNum(ballNumArray[0]);
+      // ボタンを消す
+      data.setShowBingoBallBtn(!data.showBingoBallBtn);
+    } else {
+      setShowBallNum(ballNumArray[0]);
+    }
 
     checkNumber();
   };
@@ -70,10 +61,8 @@ const BingoBall = () => {
         <span className="ballCount">{ballCount}</span>
         個目のボール
       </div>
-      <br />
 
       <div className="ballNum">{showBallNum}</div>
-      <br />
 
       <div>
         <button

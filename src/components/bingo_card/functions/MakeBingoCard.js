@@ -35,7 +35,7 @@ const MakeBingoCard = () => {
 
   // =========== ビンゴカードの数字を作成する関数 ===========
   const makeRandomNum = (plus) => {
-    // 1〜15の数字が入った、長さ75の配列を作成
+    // 1〜15の数字が入った、長さ15の配列を作成
     const baseNum = [];
     for (let i = 1; i <= 15; i++) {
       baseNum.push(i);
@@ -80,6 +80,12 @@ const MakeBingoCard = () => {
     // インデックス2番目から1つ削除して、「free」に置換
     col_N.splice(2, 1, "free");
 
+    setColB(col_B);
+    setColI(col_I);
+    setColN(col_N);
+    setColG(col_G);
+    setColO(col_O);
+
     // 横列の数字を、用意した配列に格納
     for (let i = 0; i < 25; i += 5) {
       for (let j = 0; j < 5; j++) {
@@ -104,12 +110,6 @@ const MakeBingoCard = () => {
     for (let i = 4; i <= 20; i += 4) {
       cross_2.push(cardNumArray[i]);
     }
-
-    setColB(col_B);
-    setColI(col_I);
-    setColN(col_N);
-    setColG(col_G);
-    setColO(col_O);
 
     // ビンゴカードの数字の配列を他コンポーネントへ渡す（useContext）
     data.setCardNumbersArray(cardNumArray);

@@ -2,7 +2,7 @@ import React from "react";
 
 const ShowReachBingo = () => {
   const reachBingoNumStyle = {
-    fontSize: "40px",
+    fontSize: "30px",
     fontWeight: "bold",
   };
 
