@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { DataContext } from "../../context/DataContext";
 import "./BingoBall.css";
-import ShowReachBingo from "./show_reach-bingo/ShowReachBingo";
 
 // 1〜75を持った長さ75の配列の作成
 const bingoBallArray = [];
@@ -104,7 +103,6 @@ const BingoBall = ({ cardNumArray }) => {
         </button>
       </div>
       <br />
-      <ShowReachBingo cardNumArray={cardNumArray} />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import "./App.css";
 import BingoBall from "./components/bingo_ball/BingoBall";
 import BingoCard from "./components/bingo_card/BingoCard";
+import ShowReachBingo from "./components/reach_bingo_num/ShowReachBingo";
 import { DataProvider } from "./context/DataContext";
 
 // ビンゴカードの番号を格納する配列
@@ -37,6 +38,7 @@ function App() {
 
         <div className="container">
           <BingoCard cardNumArray={cardNumArray} />
+          <ShowReachBingo cardNumArray={cardNumArray} />
           <BingoBall cardNumArray={cardNumArray} />
         </div>
       </div>

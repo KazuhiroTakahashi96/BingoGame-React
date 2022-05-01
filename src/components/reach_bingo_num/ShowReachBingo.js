@@ -66,7 +66,7 @@ const ShowReachBingo = ({ cardNumArray }) => {
   }
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <div>リーチ数</div>
       <div style={reachBingoNumStyle}>0</div>
       <br />

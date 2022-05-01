@@ -1,16 +1,20 @@
 import React from "react";
 
-const CardNum = ({ cardNum, matchedNumArray }) => {
-  const numStyle = {
-    backgroundColor: "gold",
-    borderRadius: "20px 20px 0 0",
-  };
+const numStyle = {
+  backgroundColor: "gold",
+  borderRadius: "20px 20px 0 0",
+};
 
+const CardNum = ({ cardNum, matchedNumArray }) => {
+  // console.log(cardNum);
+  // console.log(matchedNumArray);
   return (
     <div>
       {cardNum.map((num, i) => (
         <p
-          style={num === "free" || num === matchedNumArray[0] ? numStyle : null}
+          style={
+            num === "free" || matchedNumArray.includes(num) ? numStyle : null
+          }
           key={i}
         >
           {num}

@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 120px;
+  margin: 0 60px;
 }
 .bingo > p {
   font-weight: bold;
@@ -20,7 +20,7 @@
   margin: 0 5px;
 }
 .cardNum-container > div > p {
-  padding: 8px;
-  margin: 8px;
-  line-height: 2;
+  padding: 5px;
+  margin: 5px;
+  line-height: 1.8;
 }
