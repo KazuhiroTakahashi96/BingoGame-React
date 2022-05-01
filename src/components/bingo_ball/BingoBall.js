@@ -8,7 +8,7 @@ const matchedNumArray_N = [];
 const matchedNumArray_G = [];
 const matchedNumArray_O = [];
 
-const BingoBall = ({ cardNumArray, ballCount, showBallNum }) => {
+const BingoBall = ({ ballCount, showBallNum }) => {
   // =========== ボールの数字とカード上の数字のチェックをして =============
   // ======== 一致した場合、カード上のその数字の背景色を変更する関数 =========
   // const checkNumber = () => {

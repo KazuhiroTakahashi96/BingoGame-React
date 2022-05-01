@@ -21,7 +21,7 @@ const BingoCard = ({ cardNumArray }) => {
 
   const [hideCardBtn, setHideCardBtn] = useState(false);
 
-  // =========== 作成した数字を出力する関数 ============
+  // =========== ビンゴカードを画面に出力する関数 ============
   const makeBingoCard = () => {
     for (let i = 0; i < 25; i++) {
       // iが5未満なら

@@ -61,7 +61,7 @@ function App() {
 
     // 画面に数字を表示
     // 75回引き終わった場合
-    if (bingoBallArray.length === 0) {
+    if (bingoBallArray.length === 1) {
       setShowBallNum(ballNumArray[0]);
       // ボタンを消す
       data.setShowBingoBallBtn(!data.showBingoBallBtn);
@@ -82,11 +82,7 @@ function App() {
       <div className="container">
         <BingoCard cardNumArray={cardNumArray} />
         <ShowReachBingo cardNumArray={cardNumArray} />
-        <BingoBall
-          cardNumArray={cardNumArray}
-          ballCount={ballCount}
-          showBallNum={showBallNum}
-        />
+        <BingoBall ballCount={ballCount} showBallNum={showBallNum} />
       </div>
 
       <div>
