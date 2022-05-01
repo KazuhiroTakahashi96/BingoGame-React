@@ -11,24 +11,23 @@ for (let i = 1; i <= 75; i++) {
 // 出たビンゴボールの数字を格納していく配列の作成
 const ballNumArray = [];
 
-const BingoBall = () => {
+const BingoBall = ({ cardNumArray }) => {
+  const data = useContext(DataContext);
+
   // 何個目のボールか
   const [ballCount, setBallCount] = useState(0);
   // 引いたボールの番号を表示
   const [showBallNum, setShowBallNum] = useState(0);
 
-  const data = useContext(DataContext);
-
   // ============= ビンゴボールの数字を作成する関数 ============
   const makeBingoBall = () => {
+    console.log(cardNumArray);
+
     // 0〜74の中で、ランダムな値を取得
     const randomNum = Math.floor(Math.random() * bingoBallArray.length);
 
     // インデックス「randomNum」番目の数字をballNumArrayの先頭に格納
     ballNumArray.unshift(bingoBallArray[randomNum]);
-
-    // 数字が重複しないよう、元の配列から削除
-    bingoBallArray.splice(randomNum, 1);
 
     // 画面に数字を表示
     if (bingoBallArray.length === 0) {
@@ -39,22 +38,22 @@ const BingoBall = () => {
       setShowBallNum(ballNumArray[0]);
     }
 
-    data.setMatchedNumber(ballNumArray[0]);
-    console.log(ballNumArray);
+    // 数字が重複しないよう、元の配列から削除
+    bingoBallArray.splice(randomNum, 1);
 
-    // checkNumber();
+    checkNumber();
   };
 
   // =========== ボールの数字とカード上の数字のチェックをして =============
   // ======== 一致した場合、カード上のその数字の背景色を変更する関数 =========
   const checkNumber = () => {
     // 引いた数字の値がカード上にある場合、
-    if (data.cardNumbersArray.includes(ballNumArray[0])) {
+    if (cardNumArray.includes(ballNumArray[0])) {
       // インデックス番号を取得する
-      const indexNum = data.cardNumbersArray.indexOf(ballNumArray[0]);
+      const indexNum = cardNumArray.indexOf(ballNumArray[0]);
       console.log(indexNum);
 
-      const matchedNumber = data.cardNumbersArray[indexNum];
+      const matchedNumber = cardNumArray[indexNum];
       console.log(matchedNumber);
       if (indexNum < 5) {
       } else if (indexNum < 10) {
@@ -68,7 +67,7 @@ const BingoBall = () => {
   };
 
   return (
-    <div>
+    <div className="ball-container">
       <div>
         <span className="ballCount">{ballCount}</span>
         個目のボール
@@ -89,7 +88,7 @@ const BingoBall = () => {
         </button>
       </div>
       <br />
-      <ShowReachBingo />
+      <ShowReachBingo cardNumArray={cardNumArray} />
     </div>
   );
 };

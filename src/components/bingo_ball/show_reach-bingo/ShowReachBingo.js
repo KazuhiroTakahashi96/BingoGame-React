@@ -1,11 +1,11 @@
 import React from "react";
 
-const ShowReachBingo = () => {
-  const reachBingoNumStyle = {
-    fontSize: "30px",
-    fontWeight: "bold",
-  };
+const reachBingoNumStyle = {
+  fontSize: "30px",
+  fontWeight: "bold",
+};
 
+const ShowReachBingo = ({ cardNumArray }) => {
   return (
     <div>
       <div>リーチ数</div>

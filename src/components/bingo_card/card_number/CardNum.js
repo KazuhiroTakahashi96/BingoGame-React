@@ -1,19 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { DataContext } from "../../../context/DataContext";
 
 const matchedNumberArray = [];
 
 const CardNum = ({ cardNum }) => {
-  const data = useContext(DataContext);
+  // const data = useContext(DataContext);
 
   const numStyle = {
     backgroundColor: "gold",
     borderRadius: "20px 20px 0 0",
   };
-
-  matchedNumberArray.unshift(data.matchedNumber);
-  console.log(matchedNumberArray);
-  console.log(data.matchedNumber);
 
   return (
     <div>

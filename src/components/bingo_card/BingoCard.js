@@ -2,7 +2,7 @@ import React from "react";
 import "./BingoCard.css";
 import MakeBingoCard from "./make_bingoCard/MakeBingoCard";
 
-const BingoCard = () => {
+const BingoCard = ({ cardNumArray }) => {
   return (
     <div className="card-container">
       <div className="bingo">
@@ -14,7 +14,7 @@ const BingoCard = () => {
       </div>
 
       <div>
-        <MakeBingoCard />
+        <MakeBingoCard cardNumArray={cardNumArray} />
       </div>
       <br />
     </div>

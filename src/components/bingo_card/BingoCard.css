@@ -1,19 +1,26 @@
+.card-container {
+  width: 100%;
+}
+
 .bingo {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 120px;
 }
 .bingo > p {
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .cardNum-container {
   display: flex;
+  justify-content: center;
 }
 .cardNum-container > div {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 .cardNum-container > div > p {
-  padding: 7px;
-  margin: 0 5px;
+  padding: 8px;
+  margin: 8px;
   line-height: 2;
 }

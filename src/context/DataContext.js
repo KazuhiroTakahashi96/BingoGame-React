@@ -15,7 +15,7 @@ export const DataProvider = ({ children }) => {
   //ボールボタンの表示非表示
   const [showBingoBallBtn, setShowBingoBallBtn] = useState(false);
 
-  // ボールの数字がカード上に合った場合、
+  // ボールの数字がカード上に合った場合
   const [matchedNumber, setMatchedNumber] = useState([]);
 
   return (

@@ -2,9 +2,6 @@ import { useContext, useState } from "react";
 import { DataContext } from "../../../context/DataContext";
 import CardNum from "../card_number/CardNum";
 
-// ビンゴカードの番号を格納する配列
-const cardNumArray = [];
-
 // B列、I列、N列、G列、O列の配列（縦列）
 const col_B = [];
 const col_I = [];
@@ -23,7 +20,7 @@ const row_5 = [];
 const cross_1 = [];
 const cross_2 = [];
 
-const MakeBingoCard = () => {
+const MakeBingoCard = ({ cardNumArray }) => {
   const data = useContext(DataContext);
 
   const [colB, setColB] = useState([]);
@@ -33,32 +30,8 @@ const MakeBingoCard = () => {
   const [colO, setColO] = useState([]);
   const [hideBtn, setHideBtn] = useState(false);
 
-  // =========== ビンゴカードの数字を作成する関数 ===========
-  const makeRandomNum = (plus) => {
-    // 1〜15の数字が入った、長さ15の配列を作成
-    const baseNum = [];
-    for (let i = 1; i <= 15; i++) {
-      baseNum.push(i);
-    }
-
-    for (let i = 0; i < 5; i++) {
-      // ランダムな値を取得
-      const randomNum = Math.floor(Math.random() * baseNum.length);
-      cardNumArray.push(baseNum[randomNum] + plus);
-      // 数字が重複しないよう、元の配列から削除
-      baseNum.splice(randomNum, 1);
-    }
-  };
-
-  // =========== 上で作成した数字を出力する関数 ============
+  // =========== 作成した数字を出力する関数 ============
   const makeBingoCard = () => {
-    // カードの各列に入るランダムな数字を作る
-    makeRandomNum(0);
-    makeRandomNum(15);
-    makeRandomNum(30);
-    makeRandomNum(45);
-    makeRandomNum(60);
-
     for (let i = 0; i < 25; i++) {
       // iが5未満なら
       if (i < 5) {
@@ -110,9 +83,6 @@ const MakeBingoCard = () => {
     for (let i = 4; i <= 20; i += 4) {
       cross_2.push(cardNumArray[i]);
     }
-
-    // ビンゴカードの数字の配列をBingoBall.jsに渡す（useContext）
-    data.setCardNumbersArray(cardNumArray);
   };
 
   return (
