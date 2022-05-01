@@ -9,17 +9,6 @@ const col_N = [];
 const col_G = [];
 const col_O = [];
 
-// 横列
-const row_1 = [];
-const row_2 = [];
-const row_3 = [];
-const row_4 = [];
-const row_5 = [];
-
-// 斜め列
-const cross_1 = [];
-const cross_2 = [];
-
 const MakeBingoCard = ({ cardNumArray }) => {
   const data = useContext(DataContext);
 
@@ -58,41 +47,16 @@ const MakeBingoCard = ({ cardNumArray }) => {
     setColN(col_N);
     setColG(col_G);
     setColO(col_O);
-
-    // 横列の数字を、用意した配列に格納
-    for (let i = 0; i < 25; i += 5) {
-      for (let j = 0; j < 5; j++) {
-        if (j === 0) {
-          row_1.push(cardNumArray[i]);
-        } else if (j === 1) {
-          row_2.push(cardNumArray[i + j]);
-        } else if (j === 2) {
-          row_3.push(cardNumArray[i + j]);
-        } else if (j === 3) {
-          row_4.push(cardNumArray[i + j]);
-        } else if (j === 4) {
-          row_5.push(cardNumArray[i + j]);
-        }
-      }
-    }
-
-    // 斜め列の数字を、用意した配列に格納
-    for (let i = 0; i <= 24; i += 6) {
-      cross_1.push(cardNumArray[i]);
-    }
-    for (let i = 4; i <= 20; i += 4) {
-      cross_2.push(cardNumArray[i]);
-    }
   };
 
   return (
     <>
       <div className="cardNum-container">
-        <CardNum cardNum={colB} />
-        <CardNum cardNum={colI} />
-        <CardNum cardNum={colN} />
-        <CardNum cardNum={colG} />
-        <CardNum cardNum={colO} />
+        <CardNum cardNum={colB} matchedNumArray={data.matchedNum_B} />
+        <CardNum cardNum={colI} matchedNumArray={data.matchedNum_I} />
+        <CardNum cardNum={colN} matchedNumArray={data.matchedNum_N} />
+        <CardNum cardNum={colG} matchedNumArray={data.matchedNum_G} />
+        <CardNum cardNum={colO} matchedNumArray={data.matchedNum_O} />
       </div>
 
       <button

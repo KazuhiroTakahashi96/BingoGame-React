@@ -3,11 +3,11 @@ import React, { createContext, useState } from "react";
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  // const [colB, setColB] = useState([]);
-  // const [colI, setColI] = useState([]);
-  // const [colN, setColN] = useState([]);
-  // const [colG, setColG] = useState([]);
-  // const [colO, setColO] = useState([]);
+  const [matchedNum_B, setMatchedNum_B] = useState([]);
+  const [matchedNum_I, setMatchedNum_I] = useState([]);
+  const [matchedNum_N, setMatchedNum_N] = useState([]);
+  const [matchedNum_G, setMatchedNum_G] = useState([]);
+  const [matchedNum_O, setMatchedNum_O] = useState([]);
 
   // カードの番号の配列
   const [cardNumbersArray, setCardNumbersArray] = useState([]);
@@ -21,16 +21,16 @@ export const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
-        // colB,
-        // setColB,
-        // colI,
-        // setColI,
-        // colN,
-        // setColN,
-        // colG,
-        // setColG,
-        // colO,
-        // setColO,
+        matchedNum_B,
+        setMatchedNum_B,
+        matchedNum_I,
+        setMatchedNum_I,
+        matchedNum_N,
+        setMatchedNum_N,
+        matchedNum_G,
+        setMatchedNum_G,
+        matchedNum_O,
+        setMatchedNum_O,
         cardNumbersArray,
         setCardNumbersArray,
         showBingoBallBtn,

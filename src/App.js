@@ -22,7 +22,6 @@ const makeRandomNum = (plus) => {
     baseNum.splice(randomNum, 1);
   }
 };
-
 // カードの各列に入るランダムな数字を作る
 makeRandomNum(0);
 makeRandomNum(15);

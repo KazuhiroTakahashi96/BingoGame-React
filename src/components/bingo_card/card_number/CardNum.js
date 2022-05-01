@@ -1,11 +1,6 @@
-import React, { useContext } from "react";
-import { DataContext } from "../../../context/DataContext";
+import React from "react";
 
-const matchedNumberArray = [];
-
-const CardNum = ({ cardNum }) => {
-  // const data = useContext(DataContext);
-
+const CardNum = ({ cardNum, matchedNumArray }) => {
   const numStyle = {
     backgroundColor: "gold",
     borderRadius: "20px 20px 0 0",
@@ -15,9 +10,7 @@ const CardNum = ({ cardNum }) => {
     <div>
       {cardNum.map((num, i) => (
         <p
-          style={
-            num === "free" || matchedNumberArray.includes(num) ? numStyle : null
-          }
+          style={num === "free" || num === matchedNumArray[0] ? numStyle : null}
           key={i}
         >
           {num}

@@ -11,6 +11,13 @@ for (let i = 1; i <= 75; i++) {
 // 出たビンゴボールの数字を格納していく配列の作成
 const ballNumArray = [];
 
+// 引いた数字とカード上の数字が一致した時、その数字を格納する配列
+const matchedNumArray_B = [];
+const matchedNumArray_I = [];
+const matchedNumArray_N = [];
+const matchedNumArray_G = [];
+const matchedNumArray_O = [];
+
 const BingoBall = ({ cardNumArray }) => {
   const data = useContext(DataContext);
 
@@ -21,8 +28,6 @@ const BingoBall = ({ cardNumArray }) => {
 
   // ============= ビンゴボールの数字を作成する関数 ============
   const makeBingoBall = () => {
-    console.log(cardNumArray);
-
     // 0〜74の中で、ランダムな値を取得
     const randomNum = Math.floor(Math.random() * bingoBallArray.length);
 
@@ -30,6 +35,7 @@ const BingoBall = ({ cardNumArray }) => {
     ballNumArray.unshift(bingoBallArray[randomNum]);
 
     // 画面に数字を表示
+    // 75回引き終わった場合
     if (bingoBallArray.length === 0) {
       setShowBallNum(ballNumArray[0]);
       // ボタンを消す
@@ -50,16 +56,26 @@ const BingoBall = ({ cardNumArray }) => {
     // 引いた数字の値がカード上にある場合、
     if (cardNumArray.includes(ballNumArray[0])) {
       // インデックス番号を取得する
-      const indexNum = cardNumArray.indexOf(ballNumArray[0]);
-      console.log(indexNum);
+      // const indexNum = cardNumArray.indexOf(ballNumArray[0]);
+      // console.log(indexNum);
 
-      const matchedNumber = cardNumArray[indexNum];
-      console.log(matchedNumber);
-      if (indexNum < 5) {
-      } else if (indexNum < 10) {
-      } else if (indexNum < 15) {
-      } else if (indexNum < 20) {
-      } else if (indexNum < 25) {
+      // const matchedNumber = cardNumArray[indexNum];
+      // console.log(matchedNumber);
+      if (ballNumArray[0] <= 15) {
+        matchedNumArray_B.unshift(ballNumArray[0]);
+        data.setMatchedNum_B(matchedNumArray_B);
+      } else if (ballNumArray[0] <= 30) {
+        matchedNumArray_I.unshift(ballNumArray[0]);
+        data.setMatchedNum_I(matchedNumArray_I);
+      } else if (ballNumArray[0] <= 45) {
+        matchedNumArray_N.unshift(ballNumArray[0]);
+        data.setMatchedNum_N(matchedNumArray_N);
+      } else if (ballNumArray[0] <= 60) {
+        matchedNumArray_G.unshift(ballNumArray[0]);
+        data.setMatchedNum_G(matchedNumArray_G);
+      } else if (ballNumArray[0] <= 75) {
+        matchedNumArray_O.unshift(ballNumArray[0]);
+        data.setMatchedNum_O(matchedNumArray_O);
       }
       // 背景色を変える＝穴を開ける
     }
