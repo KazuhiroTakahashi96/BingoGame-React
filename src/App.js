@@ -1,8 +1,9 @@
+import { useContext, useState } from "react";
 import "./App.css";
 import BingoBall from "./components/bingo_ball/BingoBall";
 import BingoCard from "./components/bingo_card/BingoCard";
 import ShowReachBingo from "./components/reach_bingo_num/ShowReachBingo";
-import { DataProvider } from "./context/DataContext";
+import { DataContext } from "./context/DataContext";
 
 // ビンゴカードの番号を格納する配列
 const cardNumArray = [];
@@ -30,19 +31,76 @@ makeRandomNum(30);
 makeRandomNum(45);
 makeRandomNum(60);
 
-function App() {
-  return (
-    <DataProvider>
-      <div className="App">
-        <header className="App-header">ビンゴゲーム in React </header>
+// 1〜75を持った長さ75の配列の作成
+const bingoBallArray = [];
+for (let i = 1; i <= 75; i++) {
+  bingoBallArray.push(i);
+}
 
-        <div className="container">
-          <BingoCard cardNumArray={cardNumArray} />
-          <ShowReachBingo cardNumArray={cardNumArray} />
-          <BingoBall cardNumArray={cardNumArray} />
-        </div>
+// 出たビンゴボールの数字を格納していく配列の作成
+const ballNumArray = [];
+
+// ===============================================================
+// ===============================================================
+// ===============================================================
+function App() {
+  const data = useContext(DataContext);
+
+  // 何個目のボールか
+  const [ballCount, setBallCount] = useState(0);
+  // 引いたボールの番号を表示
+  const [showBallNum, setShowBallNum] = useState(0);
+
+  // ============= ビンゴボールの数字を作成する関数 ============
+  const makeBingoBall = () => {
+    // 0〜74の中で、ランダムな値を取得
+    const randomNum = Math.floor(Math.random() * bingoBallArray.length);
+
+    // インデックス「randomNum」番目の数字をballNumArrayの先頭に格納
+    ballNumArray.unshift(bingoBallArray[randomNum]);
+
+    // 画面に数字を表示
+    // 75回引き終わった場合
+    if (bingoBallArray.length === 0) {
+      setShowBallNum(ballNumArray[0]);
+      // ボタンを消す
+      data.setShowBingoBallBtn(!data.showBingoBallBtn);
+    } else {
+      setShowBallNum(ballNumArray[0]);
+    }
+
+    // 数字が重複しないよう、元の配列から削除
+    bingoBallArray.splice(randomNum, 1);
+
+    // checkNumber();
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">ビンゴゲーム in React </header>
+
+      <div className="container">
+        <BingoCard cardNumArray={cardNumArray} />
+        <ShowReachBingo cardNumArray={cardNumArray} />
+        <BingoBall
+          cardNumArray={cardNumArray}
+          ballCount={ballCount}
+          showBallNum={showBallNum}
+        />
       </div>
-    </DataProvider>
+
+      <div>
+        <button
+          style={data.showBingoBallBtn ? null : { display: "none" }}
+          onClick={() => {
+            setBallCount(ballCount + 1);
+            makeBingoBall();
+          }}
+        >
+          ボールを引く
+        </button>
+      </div>
+    </div>
   );
 }
 
