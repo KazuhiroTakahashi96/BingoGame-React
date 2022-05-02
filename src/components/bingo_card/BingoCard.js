@@ -10,7 +10,11 @@ const col_N = [];
 const col_G = [];
 const col_O = [];
 
+const ballNumbersArray = [];
+
 const BingoCard = ({ cardNumArray, ballNumber }) => {
+  console.log(ballNumber);
+  console.log(cardNumArray);
   const data = useContext(DataContext);
 
   const [colB, setColB] = useState([]);
@@ -52,6 +56,11 @@ const BingoCard = ({ cardNumArray, ballNumber }) => {
     setColO(col_O);
   };
 
+  if (ballNumber <= 75) {
+    ballNumbersArray.unshift(ballNumber);
+    console.log(ballNumbersArray);
+  }
+
   return (
     <div className="card-container">
       <div className="bingo">
@@ -63,11 +72,11 @@ const BingoCard = ({ cardNumArray, ballNumber }) => {
       </div>
 
       <div className="cardNum-container">
-        <CardNum cardNum={colB} ballNumber={ballNumber} />
-        <CardNum cardNum={colI} ballNumber={ballNumber} />
-        <CardNum cardNum={colN} ballNumber={ballNumber} />
-        <CardNum cardNum={colG} ballNumber={ballNumber} />
-        <CardNum cardNum={colO} ballNumber={ballNumber} />
+        <CardNum cardNum={colB} ballNumbersArray={ballNumbersArray} />
+        <CardNum cardNum={colI} ballNumbersArray={ballNumbersArray} />
+        <CardNum cardNum={colN} ballNumbersArray={ballNumbersArray} />
+        <CardNum cardNum={colG} ballNumbersArray={ballNumbersArray} />
+        <CardNum cardNum={colO} ballNumbersArray={ballNumbersArray} />
       </div>
       <br />
       <button

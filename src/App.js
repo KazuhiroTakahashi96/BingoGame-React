@@ -56,21 +56,21 @@ function App() {
     // 0〜74の中で、ランダムな値を取得
     const randomNum = Math.floor(Math.random() * bingoBallArray.length);
 
-    // インデックス「randomNum」番目の数字をballNumArrayの先頭に格納
+    // bingoBallArrayのインデックス「randomNum」番目の数字をballNumArrayの先頭に格納
     ballNumArray.unshift(bingoBallArray[randomNum]);
+
+    // 数字が重複しないよう、元の配列から削除
+    bingoBallArray.splice(randomNum, 1);
 
     // 画面に数字を表示
     // 75回引き終わった場合
-    if (bingoBallArray.length === 1) {
+    if (bingoBallArray.length === 0) {
       setBallNumber(ballNumArray[0]);
       // ボタンを消す
       data.setShowBingoBallBtn(!data.showBingoBallBtn);
     } else {
       setBallNumber(ballNumArray[0]);
     }
-
-    // 数字が重複しないよう、元の配列から削除
-    bingoBallArray.splice(randomNum, 1);
   };
 
   return (

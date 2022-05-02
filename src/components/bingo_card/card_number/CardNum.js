@@ -5,11 +5,7 @@ const numStyle = {
   borderRadius: "20px 20px 0 0",
 };
 
-const ballNumbersArray = [];
-
-const CardNum = ({ cardNum, ballNumber }) => {
-  ballNumbersArray.push(ballNumber);
-
+const CardNum = ({ cardNum, ballNumbersArray }) => {
   return (
     <div>
       {cardNum.map((num, i) => (

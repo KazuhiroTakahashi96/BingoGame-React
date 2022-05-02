@@ -30,7 +30,7 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
   const [reachNumber, setReachNumber] = useState(0);
   const [bingoNumber, setBingoNumber] = useState(0);
 
-  ballNumbersArray.push(ballNumber);
+  ballNumbersArray.unshift(ballNumber);
 
   useEffect(() => {
     // 縦列の数字を、用意した配列に格納
@@ -74,9 +74,6 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
       cross_2.push(cardNumArray[i]);
     }
   }, [cardNumArray]);
-
-  console.log(ballNumbersArray);
-  console.log(cardNumArray);
 
   // リーチ数
   const totalReachNumber =
