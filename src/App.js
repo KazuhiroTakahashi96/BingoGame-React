@@ -49,7 +49,7 @@ function App() {
   // 何個目のボールか
   const [ballCount, setBallCount] = useState(0);
   // 引いたボールの番号を表示
-  const [ballNumber, setBallNumber] = useState(0);
+  const [ballNumber, setBallNumber] = useState();
 
   // ============= ビンゴボールの数字を作成する関数 ============
   const makeBingoBall = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const numStyle = {
   backgroundColor: "gold",
@@ -8,9 +8,7 @@ const numStyle = {
 const ballNumbersArray = [];
 
 const CardNum = ({ cardNum, ballNumber }) => {
-  useEffect(() => {
-    ballNumbersArray.push(ballNumber);
-  }, [ballNumber]);
+  ballNumbersArray.push(ballNumber);
 
   return (
     <div>
