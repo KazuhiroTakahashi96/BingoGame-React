@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import checkBingo from "../functions/checkBingoNum";
+import checkReach from "../functions/checkReachNum";
 
 const reachBingoNumStyle = {
   fontSize: "30px",
@@ -22,7 +24,14 @@ const row_5 = [];
 const cross_1 = [];
 const cross_2 = [];
 
-const ShowReachBingo = ({ cardNumArray }) => {
+const ballNumbersArray = [];
+
+const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
+  const [reachNumber, setReachNumber] = useState(0);
+  const [bingoNumber, setBingoNumber] = useState(0);
+
+  ballNumbersArray.push(ballNumber);
+
   // 縦列の数字を、用意した配列に格納
   for (let i = 0; i < 25; i++) {
     // iが5未満なら
@@ -65,14 +74,48 @@ const ShowReachBingo = ({ cardNumArray }) => {
     cross_2.push(cardNumArray[i]);
   }
 
+  // リーチ数
+  // const totalReachNumber =
+  //   checkReach(col_B, ballNumbersArray) +
+  //   checkReach(col_I, ballNumbersArray) +
+  //   checkReach(col_N, ballNumbersArray) +
+  //   checkReach(col_G, ballNumbersArray) +
+  //   checkReach(col_O, ballNumbersArray) +
+  //   checkReach(row_1, ballNumbersArray) +
+  //   checkReach(row_2, ballNumbersArray) +
+  //   checkReach(row_3, ballNumbersArray) +
+  //   checkReach(row_4, ballNumbersArray) +
+  //   checkReach(row_5, ballNumbersArray) +
+  //   checkReach(cross_1, ballNumbersArray) +
+  //   checkReach(cross_2, ballNumbersArray);
+  // 画面に出力
+  // setReachNumber(totalReachNumber);
+
+  // ビンゴ数
+  // const totalBingoNumber =
+  //   checkBingo(col_B, ballNumbersArray) +
+  //   checkBingo(col_I, ballNumbersArray) +
+  //   checkBingo(col_N, ballNumbersArray) +
+  //   checkBingo(col_G, ballNumbersArray) +
+  //   checkBingo(col_O, ballNumbersArray) +
+  //   checkBingo(row_1, ballNumbersArray) +
+  //   checkBingo(row_2, ballNumbersArray) +
+  //   checkBingo(row_3, ballNumbersArray) +
+  //   checkBingo(row_4, ballNumbersArray) +
+  //   checkBingo(row_5, ballNumbersArray) +
+  //   checkBingo(cross_1, ballNumbersArray) +
+  //   checkBingo(cross_2, ballNumbersArray);
+  // // 画面に出力
+  // setBingoNumber(totalBingoNumber);
+
   return (
     <div style={{ width: "100%" }}>
       <div>リーチ数</div>
-      <div style={reachBingoNumStyle}>0</div>
+      <div style={reachBingoNumStyle}>{reachNumber}</div>
       <br />
       <br />
       <div>ビンゴ数</div>
-      <div style={reachBingoNumStyle}>0</div>
+      <div style={reachBingoNumStyle}>{bingoNumber}</div>
     </div>
   );
 };

@@ -49,7 +49,7 @@ function App() {
   // 何個目のボールか
   const [ballCount, setBallCount] = useState(0);
   // 引いたボールの番号を表示
-  const [showBallNum, setShowBallNum] = useState(0);
+  const [ballNumber, setBallNumber] = useState(0);
 
   // ============= ビンゴボールの数字を作成する関数 ============
   const makeBingoBall = () => {
@@ -62,17 +62,15 @@ function App() {
     // 画面に数字を表示
     // 75回引き終わった場合
     if (bingoBallArray.length === 1) {
-      setShowBallNum(ballNumArray[0]);
+      setBallNumber(ballNumArray[0]);
       // ボタンを消す
       data.setShowBingoBallBtn(!data.showBingoBallBtn);
     } else {
-      setShowBallNum(ballNumArray[0]);
+      setBallNumber(ballNumArray[0]);
     }
 
     // 数字が重複しないよう、元の配列から削除
     bingoBallArray.splice(randomNum, 1);
-
-    // checkNumber();
   };
 
   return (
@@ -80,9 +78,9 @@ function App() {
       <header className="App-header">ビンゴゲーム in React </header>
 
       <div className="container">
-        <BingoCard cardNumArray={cardNumArray} />
-        <ShowReachBingo cardNumArray={cardNumArray} />
-        <BingoBall ballCount={ballCount} showBallNum={showBallNum} />
+        <BingoCard cardNumArray={cardNumArray} ballNumber={ballNumber} />
+        <ShowReachBingo cardNumArray={cardNumArray} ballNumber={ballNumber} />
+        <BingoBall ballCount={ballCount} ballNumber={ballNumber} />
       </div>
 
       <div>

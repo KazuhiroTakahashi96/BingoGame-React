@@ -10,7 +10,7 @@ const col_N = [];
 const col_G = [];
 const col_O = [];
 
-const BingoCard = ({ cardNumArray }) => {
+const BingoCard = ({ cardNumArray, ballNumber }) => {
   const data = useContext(DataContext);
 
   const [colB, setColB] = useState([]);
@@ -23,6 +23,7 @@ const BingoCard = ({ cardNumArray }) => {
 
   // =========== ビンゴカードを画面に出力する関数 ============
   const makeBingoCard = () => {
+    // 縦列の数字を、用意した配列に格納
     for (let i = 0; i < 25; i++) {
       // iが5未満なら
       if (i < 5) {
@@ -50,6 +51,7 @@ const BingoCard = ({ cardNumArray }) => {
     setColG(col_G);
     setColO(col_O);
   };
+
   return (
     <div className="card-container">
       <div className="bingo">
@@ -61,11 +63,11 @@ const BingoCard = ({ cardNumArray }) => {
       </div>
 
       <div className="cardNum-container">
-        <CardNum cardNum={colB} matchedNumArray={data.matchedNum_B} />
-        <CardNum cardNum={colI} matchedNumArray={data.matchedNum_I} />
-        <CardNum cardNum={colN} matchedNumArray={data.matchedNum_N} />
-        <CardNum cardNum={colG} matchedNumArray={data.matchedNum_G} />
-        <CardNum cardNum={colO} matchedNumArray={data.matchedNum_O} />
+        <CardNum cardNum={colB} ballNumber={ballNumber} />
+        <CardNum cardNum={colI} ballNumber={ballNumber} />
+        <CardNum cardNum={colN} ballNumber={ballNumber} />
+        <CardNum cardNum={colG} ballNumber={ballNumber} />
+        <CardNum cardNum={colO} ballNumber={ballNumber} />
       </div>
       <br />
       <button
