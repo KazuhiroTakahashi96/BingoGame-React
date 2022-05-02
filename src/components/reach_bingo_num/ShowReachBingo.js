@@ -30,7 +30,11 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
   const [reachNumber, setReachNumber] = useState(0);
   const [bingoNumber, setBingoNumber] = useState(0);
 
-  ballNumbersArray.unshift(ballNumber);
+  useEffect(() => {
+    if (ballNumber <= 75) {
+      ballNumbersArray.unshift(ballNumber);
+    }
+  }, [ballNumber]);
 
   useEffect(() => {
     // 縦列の数字を、用意した配列に格納

@@ -13,8 +13,6 @@ const col_O = [];
 const ballNumbersArray = [];
 
 const BingoCard = ({ cardNumArray, ballNumber }) => {
-  console.log(ballNumber);
-  console.log(cardNumArray);
   const data = useContext(DataContext);
 
   const [colB, setColB] = useState([]);
@@ -58,7 +56,6 @@ const BingoCard = ({ cardNumArray, ballNumber }) => {
 
   if (ballNumber <= 75) {
     ballNumbersArray.unshift(ballNumber);
-    console.log(ballNumbersArray);
   }
 
   return (

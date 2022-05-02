@@ -38,7 +38,7 @@ for (let i = 1; i <= 75; i++) {
 }
 
 // 出たビンゴボールの数字を格納していく配列の作成
-const ballNumArray = [];
+const ballNumbersArray = [];
 
 // ===============================================================
 // ===============================================================
@@ -56,8 +56,8 @@ function App() {
     // 0〜74の中で、ランダムな値を取得
     const randomNum = Math.floor(Math.random() * bingoBallArray.length);
 
-    // bingoBallArrayのインデックス「randomNum」番目の数字をballNumArrayの先頭に格納
-    ballNumArray.unshift(bingoBallArray[randomNum]);
+    // bingoBallArrayのインデックス「randomNum」番目の数字をballNumbersArrayの先頭に格納
+    ballNumbersArray.unshift(bingoBallArray[randomNum]);
 
     // 数字が重複しないよう、元の配列から削除
     bingoBallArray.splice(randomNum, 1);
@@ -65,11 +65,11 @@ function App() {
     // 画面に数字を表示
     // 75回引き終わった場合
     if (bingoBallArray.length === 0) {
-      setBallNumber(ballNumArray[0]);
+      setBallNumber(ballNumbersArray[0]);
       // ボタンを消す
       data.setShowBingoBallBtn(!data.showBingoBallBtn);
     } else {
-      setBallNumber(ballNumArray[0]);
+      setBallNumber(ballNumbersArray[0]);
     }
   };
 
@@ -79,7 +79,11 @@ function App() {
 
       <div className="container">
         <BingoCard cardNumArray={cardNumArray} ballNumber={ballNumber} />
-        <ShowReachBingo cardNumArray={cardNumArray} ballNumber={ballNumber} />
+        <ShowReachBingo
+          cardNumArray={cardNumArray}
+          ballNumber={ballNumber}
+          ballNumbersArray={ballNumbersArray}
+        />
         <BingoBall ballCount={ballCount} ballNumber={ballNumber} />
       </div>
 
