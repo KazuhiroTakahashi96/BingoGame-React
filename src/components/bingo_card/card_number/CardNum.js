@@ -6,7 +6,7 @@ const numStyle = {
 };
 
 const CardNum = ({ cardNum, numbersArr }) => {
-  // undefinedだった場合、からの配列を返す。でないと、includes()の所でエラーになる
+  // undefinedだった場合、空の配列を返す。でないと、includes()の所でエラーになる
   if (numbersArr === undefined) numbersArr = [];
   return (
     <div>

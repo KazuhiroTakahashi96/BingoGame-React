@@ -4,32 +4,10 @@ import BingoBall from "./components/bingo_ball/BingoBall";
 import BingoCard from "./components/bingo_card/BingoCard";
 import ShowReachBingo from "./components/reach_bingo_num/ShowReachBingo";
 import { DataContext } from "./context/DataContext";
+import makeCardNumArray from "./makeCardNumArray/makeCardNumArray";
 
-// ビンゴカードの番号を格納する配列
-const cardNumArray = [];
-
-// =========== ビンゴカードの数字を作成する関数 ===========
-const makeRandomNum = (plus) => {
-  // 1〜15の数字が入った、長さ15の配列を作成
-  const baseNum = [];
-  for (let i = 1; i <= 15; i++) {
-    baseNum.push(i);
-  }
-
-  for (let i = 0; i < 5; i++) {
-    // ランダムな値を取得
-    const randomNum = Math.floor(Math.random() * baseNum.length);
-    cardNumArray.push(baseNum[randomNum] + plus);
-    // 数字が重複しないよう、元の配列から削除
-    baseNum.splice(randomNum, 1);
-  }
-};
-// カードの各列に入るランダムな数字を作る
-makeRandomNum(0);
-makeRandomNum(15);
-makeRandomNum(30);
-makeRandomNum(45);
-makeRandomNum(60);
+// カードの番号を格納する配列(処理は別ファイルに記述)
+const cardNumArray = makeCardNumArray();
 
 // 1〜75を持った長さ75の配列の作成
 const bingoBallArray = [];
@@ -40,8 +18,6 @@ for (let i = 1; i <= 75; i++) {
 // 出たビンゴボールの数字を格納していく配列の作成
 const ballNumbersArray = [];
 
-// ===============================================================
-// ===============================================================
 // ===============================================================
 function App() {
   const data = useContext(DataContext);
@@ -81,12 +57,12 @@ function App() {
       <header className="App-header">ビンゴゲーム in React </header>
 
       <div className="container">
+        {/* [cardNumArray] は、ビンゴカード上の数字が入った配列 */}
+        {/* [numbersArr] は、引いたボールの数字が入った配列 */}
         <BingoCard cardNumArray={cardNumArray} numbersArr={numbersArr} />
-        <ShowReachBingo
-          cardNumArray={cardNumArray}
-          ballNumber={ballNumber}
-          numbersArr={numbersArr}
-        />
+        <ShowReachBingo cardNumArray={cardNumArray} numbersArr={numbersArr} />
+        {/* [ballCount] は、n個目のボールかの数字 */}
+        {/* [ballNumber] は、引いたボールの数字 */}
         <BingoBall ballCount={ballCount} ballNumber={ballNumber} />
       </div>
 
