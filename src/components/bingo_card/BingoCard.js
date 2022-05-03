@@ -10,9 +10,7 @@ const col_N = [];
 const col_G = [];
 const col_O = [];
 
-const ballNumbersArray = [];
-
-const BingoCard = ({ cardNumArray, ballNumber }) => {
+const BingoCard = ({ cardNumArray, numbersArr }) => {
   const data = useContext(DataContext);
 
   const [colB, setColB] = useState([]);
@@ -54,10 +52,6 @@ const BingoCard = ({ cardNumArray, ballNumber }) => {
     setColO(col_O);
   };
 
-  if (ballNumber <= 75) {
-    ballNumbersArray.unshift(ballNumber);
-  }
-
   return (
     <div className="card-container">
       <div className="bingo">
@@ -69,17 +63,18 @@ const BingoCard = ({ cardNumArray, ballNumber }) => {
       </div>
 
       <div className="cardNum-container">
-        <CardNum cardNum={colB} ballNumbersArray={ballNumbersArray} />
-        <CardNum cardNum={colI} ballNumbersArray={ballNumbersArray} />
-        <CardNum cardNum={colN} ballNumbersArray={ballNumbersArray} />
-        <CardNum cardNum={colG} ballNumbersArray={ballNumbersArray} />
-        <CardNum cardNum={colO} ballNumbersArray={ballNumbersArray} />
+        <CardNum cardNum={colB} numbersArr={numbersArr} />
+        <CardNum cardNum={colI} numbersArr={numbersArr} />
+        <CardNum cardNum={colN} numbersArr={numbersArr} />
+        <CardNum cardNum={colG} numbersArr={numbersArr} />
+        <CardNum cardNum={colO} numbersArr={numbersArr} />
       </div>
       <br />
       <button
         style={hideCardBtn ? { display: "none" } : null}
         onClick={() => {
           setHideCardBtn(!hideCardBtn);
+          // ボールを引くボタンを表示する
           data.setShowBingoBallBtn(!data.showBingoBallBtn);
           makeBingoCard();
         }}

@@ -7,6 +7,10 @@ const checkReach = (lineArr, ballNumsArr) => {
       reachNum += 1;
     }
   }
+  // 'free'を含んでいたら＋1する
+  if (lineArr[2] === "free") {
+    reachNum += 1;
+  }
   return reachNum === 4 ? 1 : 0;
 };
 export default checkReach;

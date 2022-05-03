@@ -7,6 +7,10 @@ const checkBingo = (lineArr, ballNumsArr) => {
       bingoNum += 1;
     }
   }
+  // 'free'を含んでいたら＋1する
+  if (lineArr[2] === "free") {
+    bingoNum += 1;
+  }
   return bingoNum === 5 ? 1 : 0;
 };
 export default checkBingo;

@@ -24,17 +24,9 @@ const row_5 = [];
 const cross_1 = [];
 const cross_2 = [];
 
-const ballNumbersArray = [];
-
-const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
+const ShowReachBingo = ({ cardNumArray, numbersArr }) => {
   const [reachNumber, setReachNumber] = useState(0);
   const [bingoNumber, setBingoNumber] = useState(0);
-
-  useEffect(() => {
-    if (ballNumber <= 75) {
-      ballNumbersArray.unshift(ballNumber);
-    }
-  }, [ballNumber]);
 
   useEffect(() => {
     // 縦列の数字を、用意した配列に格納
@@ -54,6 +46,8 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
         col_O.push(cardNumArray[i]);
       }
     }
+    col_N[2] = "free";
+
     // 横列の数字を、用意した配列に格納
     for (let i = 0; i < 25; i += 5) {
       for (let j = 0; j < 5; j++) {
@@ -70,6 +64,8 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
         }
       }
     }
+    row_3[2] = "free";
+
     // 斜め列の数字を、用意した配列に格納
     for (let i = 0; i <= 24; i += 6) {
       cross_1.push(cardNumArray[i]);
@@ -77,22 +73,26 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
     for (let i = 4; i <= 20; i += 4) {
       cross_2.push(cardNumArray[i]);
     }
+    cross_1[2] = "free";
+    cross_2[2] = "free";
   }, [cardNumArray]);
+
+  if (numbersArr === undefined) numbersArr = [];
 
   // リーチ数
   const totalReachNumber =
-    checkReach(col_B, ballNumbersArray) +
-    checkReach(col_I, ballNumbersArray) +
-    checkReach(col_N, ballNumbersArray) +
-    checkReach(col_G, ballNumbersArray) +
-    checkReach(col_O, ballNumbersArray) +
-    checkReach(row_1, ballNumbersArray) +
-    checkReach(row_2, ballNumbersArray) +
-    checkReach(row_3, ballNumbersArray) +
-    checkReach(row_4, ballNumbersArray) +
-    checkReach(row_5, ballNumbersArray) +
-    checkReach(cross_1, ballNumbersArray) +
-    checkReach(cross_2, ballNumbersArray);
+    checkReach(col_B, numbersArr) +
+    checkReach(col_I, numbersArr) +
+    checkReach(col_N, numbersArr) +
+    checkReach(col_G, numbersArr) +
+    checkReach(col_O, numbersArr) +
+    checkReach(row_1, numbersArr) +
+    checkReach(row_2, numbersArr) +
+    checkReach(row_3, numbersArr) +
+    checkReach(row_4, numbersArr) +
+    checkReach(row_5, numbersArr) +
+    checkReach(cross_1, numbersArr) +
+    checkReach(cross_2, numbersArr);
   useEffect(() => {
     // 画面に出力
     setReachNumber(totalReachNumber);
@@ -100,18 +100,18 @@ const ShowReachBingo = ({ cardNumArray, ballNumber }) => {
 
   // ビンゴ数
   const totalBingoNumber =
-    checkBingo(col_B, ballNumbersArray) +
-    checkBingo(col_I, ballNumbersArray) +
-    checkBingo(col_N, ballNumbersArray) +
-    checkBingo(col_G, ballNumbersArray) +
-    checkBingo(col_O, ballNumbersArray) +
-    checkBingo(row_1, ballNumbersArray) +
-    checkBingo(row_2, ballNumbersArray) +
-    checkBingo(row_3, ballNumbersArray) +
-    checkBingo(row_4, ballNumbersArray) +
-    checkBingo(row_5, ballNumbersArray) +
-    checkBingo(cross_1, ballNumbersArray) +
-    checkBingo(cross_2, ballNumbersArray);
+    checkBingo(col_B, numbersArr) +
+    checkBingo(col_I, numbersArr) +
+    checkBingo(col_N, numbersArr) +
+    checkBingo(col_G, numbersArr) +
+    checkBingo(col_O, numbersArr) +
+    checkBingo(row_1, numbersArr) +
+    checkBingo(row_2, numbersArr) +
+    checkBingo(row_3, numbersArr) +
+    checkBingo(row_4, numbersArr) +
+    checkBingo(row_5, numbersArr) +
+    checkBingo(cross_1, numbersArr) +
+    checkBingo(cross_2, numbersArr);
   useEffect(() => {
     // 画面に出力
     setBingoNumber(totalBingoNumber);

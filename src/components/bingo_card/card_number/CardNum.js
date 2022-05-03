@@ -5,14 +5,14 @@ const numStyle = {
   borderRadius: "20px 20px 0 0",
 };
 
-const CardNum = ({ cardNum, ballNumbersArray }) => {
+const CardNum = ({ cardNum, numbersArr }) => {
+  // undefinedだった場合、からの配列を返す。でないと、includes()の所でエラーになる
+  if (numbersArr === undefined) numbersArr = [];
   return (
     <div>
       {cardNum.map((num, i) => (
         <p
-          style={
-            num === "free" || ballNumbersArray.includes(num) ? numStyle : null
-          }
+          style={num === "free" || numbersArr.includes(num) ? numStyle : null}
           key={i}
         >
           {num}

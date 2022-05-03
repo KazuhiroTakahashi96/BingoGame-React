@@ -50,6 +50,8 @@ function App() {
   const [ballCount, setBallCount] = useState(0);
   // 引いたボールの番号を表示
   const [ballNumber, setBallNumber] = useState();
+  // ballNumbersArrayを配下のコンポーネントに送り出す
+  const [numbersArr, setNumbersArr] = useState();
 
   // ============= ビンゴボールの数字を作成する関数 ============
   const makeBingoBall = () => {
@@ -71,6 +73,7 @@ function App() {
     } else {
       setBallNumber(ballNumbersArray[0]);
     }
+    setNumbersArr(ballNumbersArray);
   };
 
   return (
@@ -78,11 +81,11 @@ function App() {
       <header className="App-header">ビンゴゲーム in React </header>
 
       <div className="container">
-        <BingoCard cardNumArray={cardNumArray} ballNumber={ballNumber} />
+        <BingoCard cardNumArray={cardNumArray} numbersArr={numbersArr} />
         <ShowReachBingo
           cardNumArray={cardNumArray}
           ballNumber={ballNumber}
-          ballNumbersArray={ballNumbersArray}
+          numbersArr={numbersArr}
         />
         <BingoBall ballCount={ballCount} ballNumber={ballNumber} />
       </div>
