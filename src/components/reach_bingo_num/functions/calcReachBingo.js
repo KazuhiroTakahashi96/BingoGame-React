@@ -38,7 +38,6 @@ export const makeLineArrays = (cardNumArray) => {
       col_O.push(cardNumArray[i]);
     }
   }
-  col_N[2] = "free";
 
   // 横列の数字を、用意した配列に格納
   for (let i = 0; i < 25; i += 5) {
@@ -56,15 +55,20 @@ export const makeLineArrays = (cardNumArray) => {
       }
     }
   }
-  row_3[2] = "free";
 
   // 斜め列の数字を、用意した配列に格納
+  // 左上から右下の列
   for (let i = 0; i <= 24; i += 6) {
     cross_1.push(cardNumArray[i]);
   }
+  // 左下から右上の列
   for (let i = 4; i <= 20; i += 4) {
     cross_2.push(cardNumArray[i]);
   }
+
+  // 中央は'free'に置換しておく
+  col_N[2] = "free";
+  row_3[2] = "free";
   cross_1[2] = "free";
   cross_2[2] = "free";
 };
@@ -86,6 +90,7 @@ export const calcTotalReachNum = (numbersArr) => {
     checkReach(cross_2, numbersArr);
   return totalReachNumber;
 };
+
 export const calcTotalBingoNum = (numbersArr) => {
   const totalBingoNumber =
     checkBingo(col_B, numbersArr) +

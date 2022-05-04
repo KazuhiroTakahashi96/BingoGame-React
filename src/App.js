@@ -49,6 +49,8 @@ function App() {
     } else {
       setBallNumber(ballNumbersArray[0]);
     }
+
+    // ballNumbersArrayを配下のコンポーネントに送り出す
     setNumbersArr(ballNumbersArray);
   };
 

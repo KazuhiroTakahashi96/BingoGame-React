@@ -11,6 +11,7 @@ const reachBingoNumStyle = {
 };
 
 const ShowReachBingo = ({ cardNumArray, numbersArr }) => {
+  // リーチ数とビンゴ数を表示する
   const [reachNumber, setReachNumber] = useState(0);
   const [bingoNumber, setBingoNumber] = useState(0);
 
